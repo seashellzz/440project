@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Most items</title>
+    </head>
+    <body>
+        <h2>User who has the most items posted: </h2>
+        <table>
+            <tr>
+                <th>User</th>
+            </tr>
+            {% for result in result2 %} 
+            <tr>
+                <th>{{ result.username }}</th>
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>

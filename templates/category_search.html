@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="cat_search">
+        <h2>Category Search</h2>
+        <div class="links">
+            <a href="{{ url_for('store') }}">Item Store</a>
+        </div><br>
+        <form action="{{ url_for('search') }}" method="post">
+            <label for="category_name">Category:</label>
+            <input type="text" name="category_name" placeholder="Enter category" id="category_name" required>
+            <input type="submit" value="Search">
+        </form>
+    </div>
+    <br>
+    <div class="search_results">
+        <h2>Search Results</h2>
+        {% if results %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Item ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    <th>Title&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    <th>Price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for result in results %}
+                <tr>
+                    <td>{{ result.item_id }}</td>
+                    <td><a href="{{ url_for('item_details', item_id=result.item_id) }}">{{ result.title }}</a></td>
+                    <td>${{ result.price }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No results found.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
+

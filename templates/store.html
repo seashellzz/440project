@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="store">
+        <h2>Store</h2>
+        <div class="links">
+            <a href="{{ url_for('search') }}">Item Search</a>
+            <a href="{{ url_for('most_expensive_items') }}">Most Expensive Items</a>
+        </div><br>
+        <form action="{{ url_for('store') }}" method="post" autocomplete="off">
+            <label for="title"></label>
+            <input type="text" name="title" placeholder="title" id="title" required>
+            <br>
+            <label for="description"></label>
+            <input type="text" name="description" placeholder="description" id="description" required>
+            <br>
+            <label for="price"></label>
+            <input type="text" name="price" placeholder="price" id="price" required>
+            <br><br>Fill categories from left to right :)
+            <br>
+            <label for="cat1"></label>
+            <input type="text" name="cat1" placeholder="category" id="cat1" required>
+            <label for="cat2"></label>
+            <input type="text" name="cat2" placeholder="category" id="cat2">
+            <label for="cat3"></label>
+            <input type="text" name="cat3" placeholder="category" id="cat3">
+            <br>
+            <input type="submit" value="Enter">
+        </form>
+    </div>
+</body>

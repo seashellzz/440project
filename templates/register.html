@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="register">
+        <h2>Register</h2>
+        <div class="links">
+            <a href="{{ url_for('login') }}">Login</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="{{ url_for('register') }}" class="active">Register</a>
+        </div>
+        <form action="{{ url_for('register') }}" method="post" autocomplete="off">
+            <label for="username"></label>
+            <input type="text" name="username" placeholder="Username" id="username" required>
+            <br>
+            <label for="email"></label>
+            <input type="text" name="email" placeholder="Email" id="email" required>
+            <br><br>
+            <label for="password"></label>
+            <input type="text" name="password" placeholder="Password" id="password" required>
+            <br>
+            <label for="pwmatch"></label>
+            <input type="text" name="pwmatch" placeholder="Confirm password" id="pwmatch" required>
+            <br><br>
+            <label for="firstName"></label>
+            <input type="text" name="firstName" placeholder="First Name" id="firstName" required>
+            <br>
+            <label for="lastName"></label>
+            <input type="text" name="lastName" placeholder="Last Name" id="lastName" required>
+            <br>
+            <input type="submit" value="Register">
+        </form>
+    </div>
+</body>

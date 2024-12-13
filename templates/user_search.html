@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="user_search">
+        <h2>User Search</h2>
+        <form action="{{ url_for('usersearch') }}" method="post">
+            <label for="user_name">Username:</label>
+            <input type="text" name="user_name" placeholder="Enter username" id="user_name" required>
+            <input type="submit" value="Search">
+        </form>
+    </div>
+    <br>
+    <div class="search_results">
+        <h2>Search Results</h2>
+        {% if results %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Username&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    <th>Item ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    <th>Title&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    <th>Rating&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for result in results %}
+                <tr>
+                    <td>{{ result.item_username }}</td>
+                    <td>{{ result.item_id }}</td>
+                    <td>{{ result.title }}</td>
+                    <td>{{ result.rating }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No results found.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
+
